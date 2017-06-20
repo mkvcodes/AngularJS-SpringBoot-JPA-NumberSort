@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="js/input.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+	<div ng-app="mySortingApp" ng-cloak ng-controller="myCtrl" class="w3-card-2 w3-margin" style="max-width:800px;">
+	  <header class="w3-container w3-light-grey w3-padding-16">
+	    <h3>Add/ Delete Numbers to sort</h3>
+	  </header>
+	  
+	  <ul class="w3-ul">
+	    <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">—</span></li>
+	  </ul>
+	  
+	  <div class="w3-container w3-light-grey w3-padding-16">
+	    
+	    <div class="w3-row w3-margin-top">
+	      
+	      <div class="w3-col s10">
+	        <input type = "number" placeholder="Enter number (integer) here" ng-model="addMe" class="w3-input w3-border w3-padding">
+	      </div>
+	      
+	      <div class="w3-col s2">
+	        <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+	      </div>
+	      
+	    </div>
+	    
+	    <div class="w3-left w3-row w3-margin-top">
+	        <button ng-click="sortNumbers()" class="w3-btn w3-padding w3-green">Submit</button>
+	    </div>
+	    
+	    <div class="w3-right w3-row w3-margin-top">
+	        <button ng-click="diplayResults()" class="w3-btn w3-padding w3-green">Display Previous results</button>
+	    </div>
+	    
+	    <div>  
+	    	<p class="w3-text-red">{{errortext}}</p>
+	    </div>  
+	  </div>
+	  
+	  <div ng-if="sortedNumbers" class="w3-container w3-light-grey w3-padding-16">
+	  	<header>
+	    	<h3>Your Sorted Numbers List</h3>
+	  	</header>
+	  	<p>Time taken is {{timeTaken}} milliseconds.</p>
+	  	<p>Minimum number of swaps required in array to sort: {{sortedNumbers.data.swapNumber}}</p>
+	  	<p>Output: {{sortedNumbers.data.userValues}}</p>
+	  </div>
+	  
+	  <div ng-if="prevResults">
+	  	<header class="w3-container w3-light-grey w3-padding-16">
+	    	<h3>Previous Results</h3>
+	  	</header>
+	  	<ul class="w3-ul">
+	    	<li ng-repeat="x in prevResults" class="w3-padding-16">{{x}}</li>
+	  	</ul>
+	  
+	  </div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿Code Walkthrough
+----------------
+Structure of the code
+
+gs-rest-service
+--static
+  --index.html
+  --js
+    --input.js
+  --css
+  --images
+  --partials
+  --views
+src
+  --main
+    --java
+      --sorting
+	--Application.java
+        --Controller
+	  --Helper.java
+	  --SortingController.java
+	  --SortVo.java
+	--dao
+	  --SortDao.java
+	--entity
+	  --SortingValues.java
+    --resources
+      --application.properties
+--pom.xml
+--.classpath
+--.project
+--.tern-project
+
+1.index.html
+This is the front end UI used by customers to add/ delete numbers to sort. It also shows the sorted output, time taken to sort and the previous sort results.
+
+2. input.js
+This is the client side validation script used by index.html. It is also used to post RESTful requests with parameters to spring boot application.
+
+3. Application.java
+This Contains the public static void main() method.
+It uses the @SpringBootApplication as a convenience annotation that adds all of the following:
+@Configuration tags the class as a source of bean definitions for the application context.
+@EnableAutoConfiguration tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
+@ComponentScan tells Spring to look for other components, configurations, and services in the hello package, allowing it to find the controllers.
+The main() method uses Spring Boot�s SpringApplication.run() method to launch an application
+
+4. Helper.java
+This class contains the minSwaps() method, which accepts an array of integers and returns a result which is an integer, the minimum number of swaps required sort an input array. This method called inside SortingCotroller class.
+
+5. SortingController.java
+This class is flagged as a @RestController, meaning it�s ready for use by Spring MVC to handle Rest requests. @RequestMapping maps
+(i)  /sortnumbers to the sorting() method.
+(ii) /findall to the findAll() method.
+
+6. SortVo.java
+Bean to store the user input (stringified JSON) and minimum swaps required to sort the array as sortVo object
+
+7.SortDao.java
+Interface that extends CrudRepository for CRUD functionality
+
+8. SortingValues.java
+It uses the @Entity and @Table as a convenience annotation to directly link it to "sorting_values" table in MySQL.
+
+9. application.properties
+Properties file for connecting to mySQL DB and JPA/Hibernate settings.

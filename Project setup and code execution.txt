@@ -1,0 +1,39 @@
+Project setup and code execution
+-------------
+
+1. Install jdk1.8.0_45
+-Download jdk1.8.0_45 from Oracle website.
+-Extract the jdk1.8.0_45 to your machine.
+-Set the JAVA_HOME environment variable to the Java base directory.
+
+2. Install apache-maven-3.5.0
+-Download Maven 3.5.0 from Apache Maven website.
+-Extract the Maven archive.
+-Add M2_HOME, M2, MAVEN_OPTS to the environment variables.
+
+3. Latest code for sorting can be downloaded from the below git location
+  ""
+
+4. Check for the pom.xml and source code (unemptied src and public folder) in the folder downloaded via GIT
+
+5. Set the environment variable PATH=%PATH%;%JAVA_HOME%/bin;%M2_HOME%/bin
+
+6. Check if the JDK is installed correctly by executing the command 
+> java -version
+
+7. Check if the Maven is installed correctly by executing the command 
+> mvn -version
+
+8. Download MySQL, install DB and start service. Add a schema named "world" in this DB
+
+9. Download Eclipse IDE and import the project as existing maven project into a suitable workspace
+
+10.Open cmd and change directory to the source code
+
+11.Run the (a) command to download all the libraries into M2_HOME and then deploy the application ino a local Tomcat server provided by the eclipse IDE. You may also use the (b) command to create a jar file for external Tomcat server
+
+(a) mvn spring-boot:run
+
+(b) mvn clean package
+
+12 After the server has started, access URL localhost:8082/ to test application
